@@ -11,11 +11,11 @@ export default function MainPage() {
   const [economies, setEconomies] = useState<Book[]>([]);
   const [developments, setDevelopments] = useState<Book[]>([]);
   const [healths, setHealths] = useState<Book[]>([]);
+  const KAKAO_API_KEY = import.meta.env.VITE_SERVICE_KEY;
   
   useEffect(() => {
     const getBooks = async () => {
       try {
-        const KAKAO_API_KEY = import.meta.env.VITE_SERVICE_KEY;
         const [novels, essays, economies, developments, healths] =
           await Promise.all([
             axios.get(`https://dapi.kakao.com/v3/search/book`, {
